@@ -11,3 +11,5 @@ catch(SQLException e){
     se.initCause(e);
     throw e;
 }
+
+Throwable e = se.getCause();
