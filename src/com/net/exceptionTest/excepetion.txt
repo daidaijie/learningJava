@@ -1,0 +1,13 @@
+1.不允许在子类的thorws说明符中出现超过超类方法所列出的异常选项
+2.异常在能处理的时候交给能胜任的类进行处理
+3.未检查的异常不应该在自己来处理
+
+4.包装异常
+try{
+    //access the database
+}
+catch(SQLException e){
+    Throwable se = new ServletException("database error")
+    se.initCause(e);
+    throw e;
+}
