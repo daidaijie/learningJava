@@ -1,10 +1,8 @@
 package com.net.exceptionTest;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 /**
  * Created by daidaijie on 2016/4/17.
@@ -46,6 +44,27 @@ public class Main {
         while ((b = in.read()) != -1) {
 
         }
+    }
+
+
+    //带资源的try语句
+    public void read() {
+        //无论是否正常都会调用in.close()
+        try (Scanner in = new Scanner(new FileInputStream("030.txt"))) {
+            System.out.println(in.next());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        //还可以使用多个资源
+        try (Scanner in = new Scanner(new FileInputStream("030.txt"));
+             PrintWriter out = new PrintWriter("out.txt")) {
+            System.out.println(in.next());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 }

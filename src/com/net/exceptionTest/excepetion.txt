@@ -13,3 +13,8 @@ catch(SQLException e){
 }
 
 Throwable e = se.getCause();
+
+5.finally 用于处理资源的关闭
+6.在执行try的return 前先处理finally的子句，假如finally中有return 子句，将会覆盖原始的返回值
+
+7.打开资源可以用带资源的try语句来,JDK1.7为实现AutoClosable的类提供资源关闭的方法
